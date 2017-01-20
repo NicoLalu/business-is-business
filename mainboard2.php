@@ -251,8 +251,8 @@ $(document).ready(function(){
 			<li><a href="entreprises.php">Les Entreprises</a></li>
 			<li><a href="titres.php">Les Titres</a></li>
 			<li><a href="gentlemen.php">Les Gentlemen</a></li>
-			<li><a href="mainboard.php">Le Board</a></li>
-			<!--<li><a href="mainboard2.php">Le Board 2</a></li>-->
+			<!--<li><a href="mainboard.php">Le Board</a></li>-->
+			<li><a href="mainboard2.php">Le Board 2</a></li>
 		</ul>
 		</div>
 			<br>
@@ -587,7 +587,7 @@ $(document).ready(function(){
 							</div>
 						  </div>
 						</form>
-				<p>-Boutons de Jeu-</p>
+				
         <div class="col-sm-3 col-md-3 col-lg-3">
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-impots">Impots</button>
       </div>
@@ -605,7 +605,7 @@ $(document).ready(function(){
   				// set the resulting array to associative
   				$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
   				while ($result = $stmt->fetch(PDO::FETCH_ASSOC)){
-  					print '<p class="form-control-static">PROCASH : '.$result['Valeur'].'</p>';
+  					print '<p class="form-control-static" style="background-color:#914800; color:orange;text-align:center">PROCASH : '.$result['Valeur'].'</p>';
   				}
   			}
   			catch(PDOException $e) {
