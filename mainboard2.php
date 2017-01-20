@@ -54,7 +54,7 @@ $(document).ready(function(){
     xmlhttp.send();
   });
 	$("#modal-impots").on('show.bs.modal', function () {
-  
+
 		if (window.XMLHttpRequest) {
 			// code for IE7+, Firefox, Chrome, Opera, Safari
 			xmlhttp=new XMLHttpRequest();
@@ -252,7 +252,7 @@ $(document).ready(function(){
 			<li><a href="titres.php">Les Titres</a></li>
 			<li><a href="gentlemen.php">Les Gentlemen</a></li>
 			<li><a href="mainboard.php">Le Board</a></li>
-			<li><a href="mainboard2.php">Le Board 2</a></li>
+			<!--<li><a href="mainboard2.php">Le Board 2</a></li>-->
 		</ul>
 		</div>
 			<br>
@@ -424,7 +424,7 @@ $(document).ready(function(){
 						<form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 							<div class="form-group form-group-sm">
 								<div class="col-sm-12">
-									<label for="valid-elections" class="control-label">D�clencher des Elections ?</label>
+									<label for="valid-elections" class="control-label">Declencher des Elections ?</label>
 								</div>
 							</div>
 							<div class="form-group form-group-sm">
@@ -503,7 +503,7 @@ $(document).ready(function(){
 						}
 						$conn = null;
 						?>
-						<th>Nb �mis</th>
+						<th>Nb emis</th>
 
 					</tr>
 				<?php
@@ -588,8 +588,13 @@ $(document).ready(function(){
 						  </div>
 						</form>
 				<p>-Boutons de Jeu-</p>
+        <div class="col-sm-3 col-md-3 col-lg-3">
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-impots">Impots</button>
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-dividendes">Dividendes</button>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 align-right">
         <?php
   			include 'base.php';
   			try {
@@ -660,6 +665,7 @@ $(document).ready(function(){
           </div>
         </div>
         <!-- FIN Modal Dividendes -->
+      </div>
 
 			</div>
 			<div class="col-sm-12 col-md-4 col-lg-4">

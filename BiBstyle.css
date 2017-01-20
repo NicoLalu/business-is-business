@@ -14,7 +14,7 @@
     margin: 0;
     padding: 0;
 }
-	
+
 .MenuBar li {
 	border-radius: 10px;
     margin-bottom: 7px;
@@ -42,7 +42,7 @@
 	text-decoration: none;
 	color: #FFFFFF;
 }
-	
+
 .footer {
 	background-color: #914800;
 	color: orange;
@@ -56,8 +56,8 @@ table {
 
 .form-horizontal {
     padding: 1px;
-	
-	
+
+
 }
 
 .table-entreprises a {
@@ -108,41 +108,41 @@ border : 1px double red;
 .table-Sport, .table-Sport>a {
 	background-color: #0000FF;
 	color: #FFFFFF;
-	
+
 }
 
 .table-Luxe, .table-Luxe>a  {
 	background-color: #FFFF99;
 	color: black;
-}  
+}
 .table-Tourisme, .table-Tourisme>a {
 	background-color: #4DB84D;
 	color: black;
-}  
+}
 .table-Transports, .table-Transports>a {
 	background-color: #FFAD33;
 	color: black;
-}  
-.table-Médias, .table-Médias>a {
+}
+.table-Mï¿½dias, .table-Mï¿½dias>a {
 	background-color: #FFA3D1;
 	color: black;
-}  
+}
 .table-Communication,.table-Communication>a {
 	background-color: #FF5C33;
 	color: black;
-}  
+}
 .table-Banque,.table-Banque>a {
 	background-color: #914800;
 	color: #FFFFFF;
-}  
+}
 .table-Informatique, .table-Informatique>a {
 	background-color: #CC80E6;
 	color: black;
-}  
-.table-Sécurité, .table-Sécurité>a {
+}
+.table-Sï¿½curitï¿½, .table-Sï¿½curitï¿½>a {
 	background-color: #B2B2B2;
 	color: black;
-}  
+}
 .table-Immobilier, .table-Immobilier>a {
 	background-color: #C2E0FF;
 	color: black;
@@ -155,9 +155,9 @@ border : 1px double red;
 
 .modal-fraudes{
         right: 18%;
-		width: 400px;
+		width: 450px;
     }
-	
+
 .modal-politique{
         right: 18%;
 		width: 400px;
@@ -166,7 +166,7 @@ border : 1px double red;
 .modal-impots{
 		width: 400px;
     }
-	
+
 .parti-Gauche, .parti-Gauche>a {
 	background-color: #FF5C33;
 	color: black;
