@@ -252,7 +252,7 @@ $(document).ready(function(){
 			<li><a href="titres.php">Les Titres</a></li>
 			<li><a href="gentlemen.php">Les Gentlemen</a></li>
 			<!--<li><a href="mainboard.php">Le Board</a></li>-->
-			<li><a href="mainboard2.php">Le Board 2</a></li>
+			<li><a href="mainboard2.php">Le Board</a></li>
 		</ul>
 		</div>
 			<br>
@@ -587,7 +587,7 @@ $(document).ready(function(){
 							</div>
 						  </div>
 						</form>
-				
+
         <div class="col-sm-3 col-md-3 col-lg-3">
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-impots">Impots</button>
       </div>
