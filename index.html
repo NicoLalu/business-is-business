@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Business Is Business</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="BiBstyle.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script>
+	window.onload = function loadIframe()
+	{
+		if (location.search.length > 0){
+			url = unescape(location.search.substring(1))
+			window.frames["main_frame"].location=url
+		}
+	}
+</script>
+
+</head>
+
+<body>
+<div class="container-fluid">
+	<div class="header">
+	<h1>Business Is Business</h1>
+	</div>
+	<div class="row">
+		<div class="col-sm-2 MenuBar">
+		</br>
+		<ul>
+			<li><a href="index.html">Le Lobby</a></li>
+			<li><a href="entreprises.php">Les Entreprises</a></li>
+			<li><a href="titres.php">Les Titres</a></li>
+			<li><a href="gentlemen.php">Les Gentlemen</a></li>
+			<li><a href="mainboard2.php">Le Board 2</a></li>
+		</ul>
+		</div>
+		<div class="col-sm-10">
+		<h1>Le Lobby</h1>
+			<p>
+			Vous entrez dans le Lobby
+			</p>
+			<p>
+			bla bla bla bla
+			</p>
+		</div>
+	</div>
+	<div class="col-sm-12 footer">
+	Created by: Gunard
+	</div>
+</div>
+</body>
+</html>

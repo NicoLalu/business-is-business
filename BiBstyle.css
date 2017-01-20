@@ -1,0 +1,178 @@
+.header  {
+	background-color: #914800;
+	padding: 10px;
+	font-size: 14px;
+	}
+
+.header h1 {
+	color: orange;
+	}
+
+
+.MenuBar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+	
+.MenuBar li {
+	border-radius: 10px;
+    margin-bottom: 7px;
+    background-color :#33b5e5;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	transition: all 500ms;
+}
+.MenuBar li:hover  {
+    background-color: #0099cc;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.MenuBar a {
+	display: block;
+	text-decoration: none;
+	padding: 4px;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 12px;
+	}
+
+.MenuBar a:hover {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+	
+.footer {
+	background-color: #914800;
+	color: orange;
+}
+
+table {
+    font-size: 12px;
+}
+
+
+
+.form-horizontal {
+    padding: 1px;
+	
+	
+}
+
+.table-entreprises a {
+	display: block;
+	text-decoration: none;
+}
+
+.table-titres a {
+	display: block;
+	text-decoration: none;
+}
+
+
+.table-entreprises tbody tr:hover {
+border : 1px double red;
+}
+
+.table-titres tbody tr:hover {
+border : 1px double red;
+}
+
+th {
+	background-color :#914800;
+    color: orange;
+	padding: 3px;
+    text-align: left;
+}
+
+
+
+.table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td{
+    padding: 1px;
+	border: 1px solid white;
+}
+.table-entreprises>thead>tr>th, .table-entreprises>tbody>tr>th, .table-entreprises>tfoot>tr>th, .table-entreprises>thead>tr>td, .table-entreprises>tbody>tr>td, .table-entreprises>tfoot>tr>td{
+    padding: 1px;
+	border: 1px solid #EDEDED;
+
+}
+
+
+/*
+.table-hover tbody tr:hover {
+border : 1px double red;
+}*/
+
+
+.table-Sport, .table-Sport>a {
+	background-color: #0000FF;
+	color: #FFFFFF;
+	
+}
+
+.table-Luxe, .table-Luxe>a  {
+	background-color: #FFFF99;
+	color: black;
+}  
+.table-Tourisme, .table-Tourisme>a {
+	background-color: #4DB84D;
+	color: black;
+}  
+.table-Transports, .table-Transports>a {
+	background-color: #FFAD33;
+	color: black;
+}  
+.table-Médias, .table-Médias>a {
+	background-color: #FFA3D1;
+	color: black;
+}  
+.table-Communication,.table-Communication>a {
+	background-color: #FF5C33;
+	color: black;
+}  
+.table-Banque,.table-Banque>a {
+	background-color: #914800;
+	color: #FFFFFF;
+}  
+.table-Informatique, .table-Informatique>a {
+	background-color: #CC80E6;
+	color: black;
+}  
+.table-Sécurité, .table-Sécurité>a {
+	background-color: #B2B2B2;
+	color: black;
+}  
+.table-Immobilier, .table-Immobilier>a {
+	background-color: #C2E0FF;
+	color: black;
+}
+
+.modal-UI {
+        left: 3%;
+		width: 300px;
+    }
+
+.modal-fraudes{
+        right: 18%;
+		width: 400px;
+    }
+	
+.modal-politique{
+        right: 18%;
+		width: 400px;
+    }
+
+.modal-impots{
+		width: 400px;
+    }
+	
+.parti-Gauche, .parti-Gauche>a {
+	background-color: #FF5C33;
+	color: black;
+}
+
+.parti-Droite, .parti-Droite>a {
+	background-color: #33b5e5;
+	color: #FFFFFF;
+}
