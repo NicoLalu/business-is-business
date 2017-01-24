@@ -232,6 +232,20 @@ $(document).ready(function(){
 			}
 			$conn = null;
 		}
+    elseif (!empty($_POST['reinit-submit']))
+    {
+      try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $stmt = $conn->prepare("CALL init_bib()");
+        // elections
+        $stmt->execute();
+      }
+      catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+      }
+      $conn = null;
+    }
 	}
 ?>
  </head>
@@ -431,7 +445,7 @@ $(document).ready(function(){
 								<div class="col-sm-12">
 									<div class="modal-footer">
 										<input name="elections-submit" class="btn " type="submit" value="Valider">
-										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
 									</div>
 								</div>
 							</div>
@@ -441,6 +455,36 @@ $(document).ready(function(){
 			</div>
 		</div>
 		<!-- FIN Modal Elections -->
+    <!-- Modal Reinit -->
+		<div id="modal-reinit" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-politique">
+		<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header" style="background-color:#914800; color:orange;">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Reinitilisation du Jeu</h4>
+					</div>
+					<div class="modal-body ">
+						<form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+							<div class="form-group form-group-sm">
+								<div class="col-sm-12">
+									<label for="valid-reinit" class="control-label">Reinitialiser le Jeu ?</label>
+								</div>
+							</div>
+							<div class="form-group form-group-sm">
+								<div class="col-sm-12">
+									<div class="modal-footer">
+										<input name="reinit-submit" class="btn " type="submit" value="Valider">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- FIN Modal Reinit -->
 
 		<div class="col-sm-4 col-md-3">
 			<br>
@@ -587,32 +631,32 @@ $(document).ready(function(){
 							</div>
 						  </div>
 						</form>
-
-        <div class="col-sm-3 col-md-3 col-lg-3">
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-impots">Impots</button>
-      </div>
-      <div class="col-sm-3 col-md-3 col-lg-3">
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-dividendes">Dividendes</button>
+        <!-- Rajout NL 24/01/2017 -->
+        <div class="btn-group">
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-impots">Impots</button>
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-dividendes">Dividendes</button>
+          <?php
+    			include 'base.php';
+    			try {
+    				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    				$stmt = $conn->prepare("SELECT * FROM Constantes WHERE Nom LIKE 'PROCASH'");
+    				$stmt->execute();
+    				// set the resulting array to associative
+    				$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    				while ($result = $stmt->fetch(PDO::FETCH_ASSOC)){
+    					//print '<p class="form-control-static" style="background-color:#914800; color:orange;text-align:center">PROCASH : '.$result['Valeur'].'</p>';
+              print '<button type="button" class="btn btn-warning">PROCASH : '.$result['Valeur'].'</button>';
+    				}
+    			}
+    			catch(PDOException $e) {
+    				echo "Error: " . $e->getMessage();
+    			}
+    			$conn = null;
+    		?>
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-reinit">Re-Init</button>
         </div>
-        <div class="col-sm-6 col-md-6 col-lg-6 align-right">
-        <?php
-  			include 'base.php';
-  			try {
-  				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-  				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  				$stmt = $conn->prepare("SELECT * FROM Constantes WHERE Nom LIKE 'PROCASH'");
-  				$stmt->execute();
-  				// set the resulting array to associative
-  				$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-  				while ($result = $stmt->fetch(PDO::FETCH_ASSOC)){
-  					print '<p class="form-control-static" style="background-color:#914800; color:orange;text-align:center">PROCASH : '.$result['Valeur'].'</p>';
-  				}
-  			}
-  			catch(PDOException $e) {
-  				echo "Error: " . $e->getMessage();
-  			}
-  			$conn = null;
-  			?>
+        <!-- FIN Rajout NL 24/01/2017 -->
         <!-- Modal Impots -->
 				<div id="modal-impots" class="modal fade" role="dialog">
 					<div class="modal-dialog modal-impots">
@@ -665,7 +709,6 @@ $(document).ready(function(){
           </div>
         </div>
         <!-- FIN Modal Dividendes -->
-      </div>
 
 			</div>
 			<div class="col-sm-12 col-md-4 col-lg-4">
