@@ -1,10 +1,10 @@
 <?php include 'base.php';
-								
+
 try {
-	
+
 	$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$stmt = $conn->prepare("SELECT * from Titres ORDER BY TitID"); 
+	$stmt = $conn->prepare("SELECT * from Titres ORDER BY Nom");
 	$stmt->execute();
 	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 	while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -14,6 +14,6 @@ try {
 	catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
 	}
-	$conn = null;	
+	$conn = null;
 
 ?>

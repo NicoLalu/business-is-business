@@ -379,7 +379,7 @@ FOREIGN KEY (TitID) REFERENCES Titres(TitID)
 );
 
 CREATE VIEW RECAP_PORTFOLIO_TEMP AS select Gentlemen.genID, Gentlemen.nom as Gentleman, Titres.nom as Titre, Titres.titID, Portfolio.Nb, Portfolio.Nb*Titres.tarif AS Montant from Gentlemen, Titres, Portfolio where Gentlemen.genID=Portfolio.GenID and Titres.titID=Portfolio.titID and Portfolio.nb<>0 ;
-CREATE VIEW RECAP_PORTFOLIO AS select RECAP_PORTFOLIO_TEMP.*, RECAP_PORTFOLIO_TEMP.genID=Titres.Actionnaire_MAJ as is_majoritaire from RECAP_PORTFOLIO_TEMP LEFT JOIN Titres ON RECAP_PORTFOLIO_TEMP.titID=Titres.titID ;
+CREATE VIEW RECAP_PORTFOLIO AS select RECAP_PORTFOLIO_TEMP.*, RECAP_PORTFOLIO_TEMP.genID=Titres.Actionnaire_MAJ as is_majoritaire from RECAP_PORTFOLIO_TEMP LEFT JOIN Titres ON RECAP_PORTFOLIO_TEMP.titID=Titres.titID ORDER BY RECAP_PORTFOLIO_TEMP.Titre ASC;
 CREATE VIEW RECAP_TITRES_TEMP AS select Titres.titID, Titres.nom as Titre, Titres.tarif, sum(Portfolio.nb) as total_possedes, Titres.Actionnaire_MAJ from Titres, Portfolio where Titres.titID=Portfolio.titID group by Titres.TitID;
 CREATE VIEW RECAP_TITRES AS select TitID, Titre, RECAP_TITRES_TEMP.tarif, RECAP_TITRES_TEMP.total_possedes, Gentlemen.Nom as Gentleman_majoritaire, RECAP_TITRES_TEMP.Actionnaire_MAJ as MajID from RECAP_TITRES_TEMP LEFT JOIN Gentlemen ON RECAP_TITRES_TEMP.Actionnaire_MAJ=Gentlemen.GenID;
 CREATE VIEW RECAP_DERRICKS AS select MajID, COUNT(*) as Nb_Derricks from RECAP_TITRES group by MajID;
@@ -532,19 +532,24 @@ CREATE PROCEDURE add_fraudes (IN GentlemanID INT, IN quantiteFRAUDES INT)
 
 CREATE PROCEDURE init_bib()
 	BEGIN
-	-- remise des UI � 0
+	DECLARE nb_gentlemen INT DEFAULT 0;
+	-- remise des UI a 0
 	DECLARE nb_entreprises INT DEFAULT 0;
 	select count(*) into nb_entreprises from Entreprises;
 	WHILE nb_entreprises > 0 DO
 		CALL set_ui(nb_entreprises,0);
 		SET nb_entreprises = nb_entreprises - 1;
 	END WHILE;
-	-- remise � 0 du portfolio
+	select count(*) into nb_gentlemen from Gentlemen;
+	WHILE nb_gentlemen > 0 DO
+		CALL set_fraudes(nb_gentlemen,0);
+		SET nb_gentlemen = nb_gentlemen - 1;
+	END WHILE;
+	-- remise a 0 du portfolio
 	DELETE FROM Portfolio;
 	CALL init_portfolio();
 	CALL compute_titres();
 	CALL compute_entreprises();
-
 	END |
 
 CREATE PROCEDURE achat_titres(IN GentlemanID INT, IN TitreID INT, IN NbAchetes INT)

@@ -51,7 +51,7 @@
 					}
 					$conn = null;
 					?>
-					<th>Nb �mis</th>
+					<th>Nb Emis</th>
 					<th>Actionnaire Majoritaire</th>
 				</tr>
 			<?php

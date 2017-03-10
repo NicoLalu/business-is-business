@@ -555,7 +555,7 @@ $(document).ready(function(){
 				try {
 					$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 					$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-					$stmt = $conn->prepare("SELECT * FROM RECAP_TITRES ORDER BY TitID");
+					$stmt = $conn->prepare("SELECT * FROM RECAP_TITRES ORDER BY Titre");
 					$stmt->execute();
 					// set the resulting array to associative
 					$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
