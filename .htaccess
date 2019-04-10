@@ -1,0 +1,9 @@
+<Files mainboard2.php>
+
+AuthUserFile /home/biblejeuhc/www/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Acces Restreint"
+AuthType basic
+require valid-user
+
+</Files>

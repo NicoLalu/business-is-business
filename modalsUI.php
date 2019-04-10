@@ -3,7 +3,7 @@
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$stmt = $conn->prepare("SELECT * FROM Entreprises ORDER BY EntID"); 
+	$stmt = $conn->prepare("SELECT * FROM Entreprises_conference ORDER BY EntID");
 	$stmt->execute();
 	$self = htmlspecialchars($_SERVER["PHP_SELF"]);
 	// set the resulting array to associative
@@ -11,7 +11,7 @@ try {
 	while ($result = $stmt->fetch(PDO::FETCH_ASSOC)){
 		$sectID=$result['SectID'];
 		$secteur_nom='';
-		$stmt2 = $conn->prepare("SELECT Nom FROM Secteurs WHERE SectID=$sectID"); 
+		$stmt2 = $conn->prepare("SELECT Nom FROM Secteurs_conference WHERE SectID=$sectID");
 		$stmt2->execute();
 		$result2 = $stmt2->setFetchMode(PDO::FETCH_ASSOC);
 		while ($result2 = $stmt2->fetch(PDO::FETCH_ASSOC)){
@@ -26,7 +26,7 @@ try {
         print '<button type="button" class="close" data-dismiss="modal">&times;</button>'."\n";
 		print '<h4 class="modal-title">'.$result['Nom'].'</h4>'."\n";
 		print '</div>'."\n";
-		print '<div class="modal-body ">'."\n";  
+		print '<div class="modal-body ">'."\n";
 		print '<form class="form-horizontal" method="post" action="'.$self.'">'."\n";
 		print '<div class="form-group form-group-sm">'."\n";
 		print '<label for="quantite_UI_achete" class="col-sm-2 control-label">UI</label>'."\n";
@@ -40,10 +40,10 @@ try {
 		print '<input type="hidden" id="entreprise_ui" name="entreprise_ui" value="'.$result['EntID'].'">'."\n";
 		print '				  <input name="ui-submit" class="btn " type="submit" value="Investir">'."\n";
         print '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'."\n";
-		print '</div>'."\n";		
 		print '</div>'."\n";
 		print '</div>'."\n";
-		print '	</form>	'."\n";	
+		print '</div>'."\n";
+		print '	</form>	'."\n";
 		print '</div>'."\n";
 		print '</div>'."\n";
 
@@ -52,9 +52,10 @@ try {
 		print '<!-- FIN Modal -->'."\n";
 		}
 	}
-	
+
 catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
 $conn = null;
 ?>
+Entreprises_conference

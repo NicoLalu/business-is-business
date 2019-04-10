@@ -21,7 +21,7 @@ try {
 		$montant_transaction=0;
 	}
 	else {
-		$stmt = $conn->prepare("SELECT * FROM Titres WHERE Nom LIKE $titre"); 
+		$stmt = $conn->prepare("SELECT * FROM Titres WHERE Nom LIKE $titre");
 		$stmt->execute();
 		// set the resulting array to associative
 		$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -35,7 +35,7 @@ try {
 		$montant_transaction2=0;
 	}
 	else {
-		$stmt2 = $conn->prepare("SELECT * FROM Titres WHERE Nom LIKE $titre2"); 
+		$stmt2 = $conn->prepare("SELECT * FROM Titres WHERE Nom LIKE $titre2");
 		$stmt2->execute();
 		// set the resulting array to associative
 		$result2 = $stmt2->setFetchMode(PDO::FETCH_ASSOC);
@@ -45,14 +45,14 @@ try {
 			// print 'Montant 2 : '.$montant_transaction;
 		}
 	}
-	$stmt = $conn->prepare("SELECT Valeur FROM Constantes WHERE Nom LIKE 'ARRONDI_TARIF_ENT'"); 
+	$stmt = $conn->prepare("SELECT Valeur FROM Constantes_conference WHERE Nom LIKE 'ARRONDI_TARIF_ENT'");
 	$stmt->execute();
 	$arrondi=1;
 	while ($result = $stmt->fetch(PDO::FETCH_ASSOC)){
 			$arrondi=$result['Valeur'];
 		}
 	$montant_total=ceil(($montant_transaction+$montant_transaction2)/$arrondi)*$arrondi;
-	// rendre un champ static pour le formulaire ex :<p class="form-control-static">Veuillez sélectionner des titres</p>
+	// rendre un champ static pour le formulaire ex :<p class="form-control-static">Veuillez sï¿½lectionner des titres</p>
 	print '<p class="form-control-static">Montant : '.$montant_total.'</p>';
 }
 catch(PDOException $e) {

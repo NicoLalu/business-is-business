@@ -41,7 +41,7 @@
 				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-				$stmt2 = $conn->prepare("SELECT * FROM Secteurs");
+				$stmt2 = $conn->prepare("SELECT * FROM Secteurs_conference");
 				$stmt2->execute();
 
 
@@ -49,7 +49,7 @@
 				$result2 = $stmt2->setFetchMode(PDO::FETCH_ASSOC);
 				while ($result2 = $stmt2->fetch(PDO::FETCH_ASSOC)){
 					$sect=$result2['SectID'];
-					$stmt = $conn->prepare("SELECT * FROM Entreprises where sectID=$sect ORDER BY EntID");
+					$stmt = $conn->prepare("SELECT * FROM Entreprises_conference where sectID=$sect ORDER BY EntID");
 					$stmt->execute();
 					// set the resulting array to associative
 					$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
