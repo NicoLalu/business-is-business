@@ -12,7 +12,7 @@
 <body>
 <div class="container-fluid">
 	<div class="header">
-	<h1>Business Is Business</h1>
+	<h1>Business Is Business Conférence</h1>
 	</div>
 
 	<div class="row">
@@ -23,7 +23,7 @@
 			<li><a href="entreprises.php">Les Entreprises</a></li>
 			<li><a href="titres.php">Les Titres</a></li>
 			<li><a href="gentlemen.php">Les Gentlemen</a></li>
-			<li><a href="mainboard2.php">Le Board</a></li>
+			<li><a href="mainboard_conference.php">Le Board Conference</a></li>
 		</ul>
 		</div>
 		<div class="col-sm-10">

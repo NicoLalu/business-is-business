@@ -12,7 +12,7 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$stmt = $conn->prepare("CALL update_taux_dividendes()");
+	$stmt = $conn->prepare("CALL update_taux_dividendes_conference()");
 	$stmt->execute();
 	}
 catch(PDOException $e) {
@@ -30,7 +30,7 @@ print '								</tr>';
 try {
 	$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$stmt = $conn->prepare("SELECT * FROM RECAP_DIVIDENDES ORDER BY GenID");
+	$stmt = $conn->prepare("SELECT * FROM RECAP_DIVIDENDES_conference ORDER BY GenID");
 	$stmt->execute();
 	// set the resulting array to associative
 	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);

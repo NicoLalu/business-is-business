@@ -58,4 +58,3 @@ catch(PDOException $e) {
 }
 $conn = null;
 ?>
-Entreprises_conference

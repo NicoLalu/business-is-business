@@ -23,7 +23,7 @@
 			<li><a href="entreprises.php">Les Entreprises</a></li>
 			<li><a href="titres.php">Les Titres</a></li>
 			<li><a href="gentlemen.php">Les Gentlemen</a></li>
-			<li><a href="mainboard2.php">Le Board</a></li>
+			<li><a href="mainboard_conference.php">Le Board Conference</a></li>
 		</ul>
 		</div>
 		<div class="col-sm-10">
@@ -38,7 +38,7 @@
 					try {
 						$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 						$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-						$stmt2 = $conn->prepare("SELECT Nom FROM Gentlemen ORDER BY GenID");
+						$stmt2 = $conn->prepare("SELECT Nom FROM Gentlemen_conference ORDER BY GenID");
 						$stmt2->execute();
 						// set the resulting array to associative
 						$result2 = $stmt2->setFetchMode(PDO::FETCH_ASSOC);
@@ -59,14 +59,14 @@
 			try {
 				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$stmt = $conn->prepare("SELECT * FROM RECAP_TITRES ORDER BY TitID");
+				$stmt = $conn->prepare("SELECT * FROM RECAP_TITRES_conference ORDER BY TitID");
 				$stmt->execute();
 				// set the resulting array to associative
 				$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 				while ($result = $stmt->fetch(PDO::FETCH_ASSOC)){
 					$titre_id_encours=$result['TitID'];
 					print '<tr><td>'.$result['Titre'].'</td><td>'.$result['tarif'].'</td>';
-					$stmt3 = $conn->prepare("SELECT * FROM Portfolio WHERE TitID=$titre_id_encours ORDER BY GenID");
+					$stmt3 = $conn->prepare("SELECT * FROM Portfolio_conference WHERE TitID=$titre_id_encours ORDER BY GenID");
 					$stmt3->execute();
 					$result3 = $stmt3->setFetchMode(PDO::FETCH_ASSOC);
 					while ($result3 = $stmt3->fetch(PDO::FETCH_ASSOC)){

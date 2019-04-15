@@ -99,7 +99,7 @@ $(document).ready(function(){
 				try {
 				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$stmt2 = $conn->prepare("select * from Gentlemen where nom LIKE :acheteur");
+				$stmt2 = $conn->prepare("select * from Gentlemen_conference where nom LIKE :acheteur");
 				$stmt2->bindParam(':acheteur', $acheteur);
 				$stmt2->execute();
 				// set the resulting array to associative
@@ -107,7 +107,7 @@ $(document).ready(function(){
 				while($result2 = $stmt2->fetch(PDO::FETCH_ASSOC)){
 					$genID=$result2['GenID'];
 					}
-				$stmt2 = $conn->prepare("select * from Titres where nom LIKE :titre");
+				$stmt2 = $conn->prepare("select * from Titres_conference where nom LIKE :titre");
 				$stmt2->bindParam(':titre', $titre_achete);
 				$stmt2->execute();
 				// set the resulting array to associative
@@ -115,7 +115,7 @@ $(document).ready(function(){
 				while($result2 = $stmt2->fetch(PDO::FETCH_ASSOC)){
 					$titID=$result2['TitID'];
 					}
-				$stmt = $conn->prepare("CALL achat_titres(:acheteurID, :titre_acheteID, :quantite_titre_achete)");
+				$stmt = $conn->prepare("CALL achat_titres_conference(:acheteurID, :titre_acheteID, :quantite_titre_achete)");
 				$stmt->bindParam(':acheteurID', $genID);
 				$stmt->bindParam(':titre_acheteID', $titID);
 				$stmt->bindParam(':quantite_titre_achete', $quantite_titre_achete);
@@ -145,7 +145,7 @@ $(document).ready(function(){
 			try {
 				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$stmt = $conn->prepare("CALL add_ui(:entreprise_ui, :quantite_UI_achete)");
+				$stmt = $conn->prepare("CALL add_ui_conference(:entreprise_ui, :quantite_UI_achete)");
 				$stmt->bindParam(':entreprise_ui', $entreprise_ui);
 				// $stmt->bindParam(':quantite_UI_achete', $titID);
 				$stmt->bindParam(':quantite_UI_achete', $quantite_UI_achete);
@@ -167,7 +167,7 @@ $(document).ready(function(){
 			try {
 				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$stmt = $conn->prepare("CALL add_fraudes(:genID, :qtte_fraudes)");
+				$stmt = $conn->prepare("CALL add_fraudes_conference(:genID, :qtte_fraudes)");
 				$genID = 1;
 				$stmt->bindParam(':genID', $genID);
 				$stmt->bindParam(':qtte_fraudes', $qtte_fraudes_genID_1);
@@ -201,7 +201,7 @@ $(document).ready(function(){
 			try {
 				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$stmt = $conn->prepare("CALL add_caisse_noire(:polID, :montant_cn)");
+				$stmt = $conn->prepare("CALL add_caisse_noire_conference(:polID, :montant_cn)");
 				$polID = 1;
 				$stmt->bindParam(':polID', $polID);
 				$stmt->bindParam(':montant_cn', $qtte_cn_PolID_1);
@@ -223,7 +223,7 @@ $(document).ready(function(){
 			try {
 				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$stmt = $conn->prepare("CALL declenche_elections()");
+				$stmt = $conn->prepare("CALL declenche_elections_conference()");
 				// elections
 				$stmt->execute();
 			}
@@ -237,7 +237,7 @@ $(document).ready(function(){
       try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->prepare("CALL init_bib()");
+        $stmt = $conn->prepare("CALL init_bib_conference()");
         // elections
         $stmt->execute();
       }
@@ -266,7 +266,7 @@ $(document).ready(function(){
 			<li><a href="titres.php">Les Titres</a></li>
 			<li><a href="gentlemen.php">Les Gentlemen</a></li>
 			<!--<li><a href="mainboard.php">Le Board</a></li>-->
-			<li><a href="mainboard2.php">Le Board</a></li>
+			<li><a href="mainboard_conference.php">Le Board</a></li>
 		</ul>
 		</div>
 			<br>
@@ -279,7 +279,7 @@ $(document).ready(function(){
 			try {
 				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$stmt = $conn->prepare("SELECT * FROM Gentlemen");
+				$stmt = $conn->prepare("SELECT * FROM Gentlemen_conference");
 				$stmt->execute();
 				// set the resulting array to associative
 				$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -302,7 +302,7 @@ $(document).ready(function(){
 			try {
 				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$stmt = $conn->prepare("SELECT * FROM Politique ORDER BY Nom DESC");
+				$stmt = $conn->prepare("SELECT * FROM Politique_conference ORDER BY Nom DESC");
 				$stmt->execute();
 				// set the resulting array to associative
 				$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -345,7 +345,7 @@ $(document).ready(function(){
 									try {
 										$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 										$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-										$stmt2 = $conn->prepare("SELECT * FROM Gentlemen");
+										$stmt2 = $conn->prepare("SELECT * FROM Gentlemen_conference");
 										$stmt2->execute();
 										// set the resulting array to associative
 										$result2 = $stmt2->setFetchMode(PDO::FETCH_ASSOC);
@@ -393,7 +393,7 @@ $(document).ready(function(){
 									try {
 										$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 										$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-										$stmt2 = $conn->prepare("SELECT * FROM Politique ORDER BY Nom DESC");
+										$stmt2 = $conn->prepare("SELECT * FROM Politique_conference ORDER BY Nom DESC");
 										$stmt2->execute();
 										// set the resulting array to associative
 										$result2 = $stmt2->setFetchMode(PDO::FETCH_ASSOC);
@@ -534,7 +534,7 @@ $(document).ready(function(){
 						try {
 							$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 							$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-							$stmt2 = $conn->prepare("SELECT Nom FROM Gentlemen ORDER BY GenID");
+							$stmt2 = $conn->prepare("SELECT Nom FROM Gentlemen_conference ORDER BY GenID");
 							$stmt2->execute();
 							// set the resulting array to associative
 							$result2 = $stmt2->setFetchMode(PDO::FETCH_ASSOC);
@@ -555,7 +555,7 @@ $(document).ready(function(){
 				try {
 					$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 					$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-					$stmt = $conn->prepare("SELECT * FROM RECAP_TITRES ORDER BY Titre");
+					$stmt = $conn->prepare("SELECT * FROM RECAP_TITRES_conference ORDER BY Titre");
 					$stmt->execute();
 					// set the resulting array to associative
 					$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -563,7 +563,7 @@ $(document).ready(function(){
 						$titre_id_encours=$result['TitID'];
 						$maj_id=$result['MajID'];
 						print '<tr><td>'.$result['Titre'].'</td><td>'.$result['tarif'].'</td>';
-						$stmt3 = $conn->prepare("SELECT * FROM Portfolio WHERE TitID=$titre_id_encours ORDER BY GenID");
+						$stmt3 = $conn->prepare("SELECT * FROM Portfolio_conference WHERE TitID=$titre_id_encours ORDER BY GenID");
 						$stmt3->execute();
 						$result3 = $stmt3->setFetchMode(PDO::FETCH_ASSOC);
 						while ($result3 = $stmt3->fetch(PDO::FETCH_ASSOC)){
@@ -720,7 +720,7 @@ $(document).ready(function(){
 						$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 						$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-						$stmt2 = $conn->prepare("SELECT * FROM RECAP_GENTLEMEN");
+						$stmt2 = $conn->prepare("SELECT * FROM RECAP_GENTLEMEN_conference");
 						$stmt2->execute();
 						// set the resulting array to associative
 						$result2 = $stmt2->setFetchMode(PDO::FETCH_ASSOC);
@@ -729,7 +729,7 @@ $(document).ready(function(){
 							$nb_derricks=$result2['Nb_Derricks'];
 							if ($nb_derricks == "") {$nb_derricks=0;}
 							print '<tr><th colspan=4 style="text-align:center">'.$result2['Nom'].'<span class="badge alert-info  pull-right">'.$nb_derricks.'</span>'.'</th></tr>';
-							$stmt = $conn->prepare("SELECT * from RECAP_PORTFOLIO where genID=$gen ORDER BY TitID");
+							$stmt = $conn->prepare("SELECT * from RECAP_PORTFOLIO_conference where genID=$gen ORDER BY TitID");
 							$stmt->execute();
 							$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 							while($result = $stmt->fetch(PDO::FETCH_ASSOC)){

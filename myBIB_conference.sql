@@ -34,16 +34,16 @@ PRIMARY KEY (SectID)
 )
 ;
 
-INSERT INTO Secteurs_conference (Nom) VALUES ('Sport');
-INSERT INTO Secteurs_conference (Nom) VALUES ('Luxe');
-INSERT INTO Secteurs_conference (Nom) VALUES ('Tourisme');
-INSERT INTO Secteurs_conference (Nom) VALUES ('Transports');
-INSERT INTO Secteurs_conference (Nom) VALUES ('Medias');
-INSERT INTO Secteurs_conference (Nom) VALUES ('Communication');
-INSERT INTO Secteurs_conference (Nom) VALUES ('Banque');
-INSERT INTO Secteurs_conference (Nom) VALUES ('Informatique');
-INSERT INTO Secteurs_conference (Nom) VALUES ('Securite');
-INSERT INTO Secteurs_conference (Nom) VALUES ('Immobilier');
+INSERT INTO Secteurs_conference (Nom) VALUES ('Justicier');
+INSERT INTO Secteurs_conference (Nom) VALUES ('Criminel');
+INSERT INTO Secteurs_conference (Nom) VALUES ('Pollueur');
+INSERT INTO Secteurs_conference (Nom) VALUES ('Ecologiste');
+INSERT INTO Secteurs_conference (Nom) VALUES ('Epicurien');
+INSERT INTO Secteurs_conference (Nom) VALUES ('Ascete');
+INSERT INTO Secteurs_conference (Nom) VALUES ('Mitterrandiste');
+INSERT INTO Secteurs_conference (Nom) VALUES ('Giscardien');
+INSERT INTO Secteurs_conference (Nom) VALUES ('Esthete');
+INSERT INTO Secteurs_conference (Nom) VALUES ('Philistin');
 
 
 CREATE TABLE Entreprises_conference
@@ -59,36 +59,36 @@ FOREIGN KEY (SectID) REFERENCES Secteurs_conference(SectID)
 )
 ;
 
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('L\'Aurochs Sportif', 1, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Le Gradome Olympique', 1, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Interforme', 1, 'Gauche');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Une Femme, Un Soir', 2, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Le Douglas', 2, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('La Seiclope', 2, 'Gauche');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('La CRAM Tours', 3, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Les Hotels Preston', 3, 'Gauche');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Campaparc', 3, 'Gauche');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('France Rapide', 4, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Aeroserge', 4, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Transprolo', 4, 'Gauche');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('L\'Antenne Mercatique', 5, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Filmamax', 5, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Telefunnf', 5, 'Gauche');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('L\'Ipimop', 6, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Les Mission. du Jug.', 6, 'Gauche');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Promocreart', 6, 'Gauche');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Credit Confinance', 7, 'Gauche');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Benefa Fonds', 7, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('La Bancaire de Banque', 7, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Commutel', 8, 'Gauche');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Kunkai', 8, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Solutisoft', 8, 'Gauche');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Securisur', 9, 'Gauche');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Groupe Ecoute & Gere', 9, 'Gauche');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Neutropov', 9, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Impec\'Immo', 10, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Tapisol', 10, 'Gauche');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Betonbloc', 10, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Michel Poniatowski', 1, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Commissaire Broussard', 1, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Juge Michel', 1, 'Gauche');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Licio Gelli', 2, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Garth Knight', 2, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Meyer Lansky', 2, 'Gauche');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Armand Hammer', 3, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Aristote Onassis', 3, 'Gauche');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Jock Ewing', 3, 'Gauche');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Bob Hunter', 4, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('René Dumont', 4, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Chef Roani', 4, 'Gauche');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Zino Davidoff', 5, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Princess Margaret', 5, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Fabrice Emear', 5, 'Gauche');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Dr Martinot', 6, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Joël de Rosnay', 6, 'Gauche');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('ReinholdÒ Messner', 6, 'Gauche');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Yvette Roudy', 7, 'Gauche');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Louis Mexandeau', 7, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Pierre Bérégovoy', 7, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Michel Guy', 8, 'Gauche');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Alice Saunier-Seïté', 8, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Raffarin Jeune', 8, 'Gauche');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Alexis de Redé', 9, 'Gauche');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Joe Colombo', 9, 'Gauche');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Claude Pompidou', 9, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Guy Lux', 10, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Paul-Loup Sulitzer', 10, 'Gauche');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Mike Brant', 10, 'Droite');
 
 
 CREATE TABLE Gentlemen_conference
