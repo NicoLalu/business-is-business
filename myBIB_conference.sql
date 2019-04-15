@@ -69,21 +69,21 @@ INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Arman
 INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Aristote Onassis', 3, 'Gauche');
 INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Jock Ewing', 3, 'Gauche');
 INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Bob Hunter', 4, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('René Dumont', 4, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Rene Dumont', 4, 'Droite');
 INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Chef Roani', 4, 'Gauche');
 INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Zino Davidoff', 5, 'Droite');
 INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Princess Margaret', 5, 'Droite');
 INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Fabrice Emear', 5, 'Gauche');
 INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Dr Martinot', 6, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Joël de Rosnay', 6, 'Gauche');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('ReinholdÒ Messner', 6, 'Gauche');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Joel de Rosnay', 6, 'Gauche');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Reinhold Messner', 6, 'Gauche');
 INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Yvette Roudy', 7, 'Gauche');
 INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Louis Mexandeau', 7, 'Droite');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Pierre Bérégovoy', 7, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Pierre Beregovoy', 7, 'Droite');
 INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Michel Guy', 8, 'Gauche');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Alice Saunier-Seïté', 8, 'Droite');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Alice Saunier-Seite', 8, 'Droite');
 INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Raffarin Jeune', 8, 'Gauche');
-INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Alexis de Redé', 9, 'Gauche');
+INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Alexis de Rede', 9, 'Gauche');
 INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Joe Colombo', 9, 'Gauche');
 INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Claude Pompidou', 9, 'Droite');
 INSERT INTO Entreprises_conference (Nom, SectID, Parti_politique) VALUES ('Guy Lux', 10, 'Droite');
@@ -379,7 +379,7 @@ FOREIGN KEY (TitID) REFERENCES Titres_conference(TitID)
 );
 
 CREATE VIEW RECAP_PORTFOLIO_TEMP_conference AS select Gentlemen_conference.genID, Gentlemen_conference.nom as Gentleman, Titres_conference.nom as Titre, Titres_conference.titID, Portfolio_conference.Nb, Portfolio_conference.Nb*Titres_conference.tarif AS Montant from Gentlemen_conference, Titres_conference, Portfolio_conference where Gentlemen_conference.genID=Portfolio_conference.GenID and Titres_conference.titID=Portfolio_conference.titID and Portfolio_conference.nb<>0 ;
-CREATE VIEW RECAP_PORTFOLIO_conference AS select RECAP_PORTFOLIO_TEMP_conference.*, RECAP_PORTFOLIO_TEMP.genID=Titres_conference.Actionnaire_MAJ as is_majoritaire from RECAP_PORTFOLIO_TEMP_conference LEFT JOIN Titres_conference ON RECAP_PORTFOLIO_TEMP_conference.titID=Titres_conference.titID ORDER BY RECAP_PORTFOLIO_TEMP_conference.Titre ASC;
+CREATE VIEW RECAP_PORTFOLIO_conference AS select RECAP_PORTFOLIO_TEMP_conference.*, RECAP_PORTFOLIO_TEMP_conference.genID=Titres_conference.Actionnaire_MAJ as is_majoritaire from RECAP_PORTFOLIO_TEMP_conference LEFT JOIN Titres_conference ON RECAP_PORTFOLIO_TEMP_conference.titID=Titres_conference.titID ORDER BY RECAP_PORTFOLIO_TEMP_conference.Titre ASC;
 CREATE VIEW RECAP_TITRES_TEMP_conference AS select Titres_conference.titID, Titres_conference.nom as Titre, Titres_conference.tarif, sum(Portfolio_conference.nb) as total_possedes, Titres_conference.Actionnaire_MAJ from Titres_conference, Portfolio_conference where Titres_conference.titID=Portfolio_conference.titID group by Titres_conference.TitID;
 CREATE VIEW RECAP_TITRES_conference AS select TitID, Titre, RECAP_TITRES_TEMP_conference.tarif, RECAP_TITRES_TEMP_conference.total_possedes, Gentlemen_conference.Nom as Gentleman_majoritaire, RECAP_TITRES_TEMP_conference.Actionnaire_MAJ as MajID from RECAP_TITRES_TEMP_conference LEFT JOIN Gentlemen_conference ON RECAP_TITRES_TEMP_conference.Actionnaire_MAJ=Gentlemen_conference.GenID;
 CREATE VIEW RECAP_DERRICKS_conference AS select MajID, COUNT(*) as Nb_Derricks from RECAP_TITRES_conference group by MajID;
