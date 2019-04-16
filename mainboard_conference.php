@@ -490,9 +490,9 @@ $(document).ready(function(){
 			<br>
 			<table class="table table-bordered table-condensed table-entreprises" >
 			<tr>
-				<th>Entreprise</th>
+				<th>Administrateur</th>
 				<th>UI</th>
-				<th>Tarif</th>
+				<th>Salaire</th>
 			</tr>
 			<?php
 			include 'base.php';
@@ -527,7 +527,7 @@ $(document).ready(function(){
 			<div class="col-sm-12 col-md-8 col-lg-8">
 				<table class="table table-bordered table-striped table-condensed table-hover table-titres">
 					<tr>
-						<th>Titre</th>
+						<th>Main d'oeuvre</th>
 						<th>Cours</th>
 						<?php
 						include 'base.php';
@@ -555,7 +555,7 @@ $(document).ready(function(){
 				try {
 					$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 					$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-					$stmt = $conn->prepare("SELECT * FROM RECAP_TITRES_conference ORDER BY Titre");
+					$stmt = $conn->prepare("SELECT * FROM RECAP_TITRES_conference ORDER BY TitID");
 					$stmt->execute();
 					// set the resulting array to associative
 					$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -593,7 +593,7 @@ $(document).ready(function(){
 							</div>
 						  </div>
 						  <div class="form-group form-group-sm">
-							<label for="titre_achete" class="col-sm-3 col-md-3 col-lg-2 control-label">Titre 1</label>
+							<label for="titre_achete" class="col-sm-3 col-md-3 col-lg-2 control-label">MO 1</label>
 							<div class="col-sm-5 col-md-5 col-lg-6">
 							  <select class="form-control" id="titre_achete" name="titre_achete" onchange="showMontant()">
 								<option value=""></option>
@@ -608,7 +608,7 @@ $(document).ready(function(){
 							</div>
 						  </div>
 						  <div class="form-group form-group-sm">
-							<label for="titre_achete2" class="col-sm-3 col-md-3 col-lg-2 control-label">Titre 2</label>
+							<label for="titre_achete2" class="col-sm-3 col-md-3 col-lg-2 control-label">MO 2</label>
 							<div class="col-sm-5 col-md-5 col-lg-6">
 							  <select class="form-control" id="titre_achete2" name="titre_achete2" onchange="showMontant()">
 								<option value=""></option>
@@ -633,8 +633,8 @@ $(document).ready(function(){
 						</form>
         <!-- Rajout NL 24/01/2017 -->
         <div class="btn-group">
-          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-impots">Impots</button>
-          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-dividendes">Dividendes</button>
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-impots">Charges Sociales</button>
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-dividendes">Benefices</button>
           <?php
     			include 'base.php';
     			try {

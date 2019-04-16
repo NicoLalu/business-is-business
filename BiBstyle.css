@@ -105,47 +105,47 @@ border : 1px double red;
 }*/
 
 
-.table-Sport, .table-Sport>a {
-	background-color: #0000FF;
+.table-Criminel, .table-Criminel>a {
+	background-color: #af2c2b;
 	color: #FFFFFF;
 
 }
 
-.table-Luxe, .table-Luxe>a  {
-	background-color: #FFFF99;
-	color: black;
-}
-.table-Tourisme, .table-Tourisme>a {
-	background-color: #4DB84D;
-	color: black;
-}
-.table-Transports, .table-Transports>a {
-	background-color: #FFAD33;
-	color: black;
-}
-.table-Medias, .table-Medias>a {
-	background-color: #FFA3D1;
-	color: black;
-}
-.table-Communication,.table-Communication>a {
-	background-color: #FF5C33;
-	color: black;
-}
-.table-Banque,.table-Banque>a {
-	background-color: #914800;
+.table-Justicier, .table-Justicier>a  {
+	background-color: #59758a;
 	color: #FFFFFF;
 }
-.table-Informatique, .table-Informatique>a {
-	background-color: #CC80E6;
+.table-Pollueur, .table-Pollueur>a {
+	background-color: #ff8f00;
 	color: black;
 }
-.table-Securite, .table-Securite>a {
-	background-color: #B2B2B2;
+.table-Ecologiste, .table-Ecologiste>a {
+	background-color: #77a130;
 	color: black;
 }
-.table-Immobilier, .table-Immobilier>a {
-	background-color: #C2E0FF;
+.table-Esthete, .table-Esthete>a {
+	background-color: #895f0e;
+	color: #FFFFFF;
+}
+.table-Philistin,.table-Philistin>a {
+	background-color: #895f96;
+	color: #FFFFFF;
+}
+.table-Ascete,.table-Ascete>a {
+	background-color: #089fb2;
 	color: black;
+}
+.table-Epicurien, .table-Epicurien>a {
+	background-color: #e4b217;
+	color: black;
+}
+.table-Giscardien, .table-Giscardien>a {
+	background-color: #3975cb;
+	color: #FFFFFF;
+}
+.table-Mitterrandiste, .table-Mitterrandiste>a {
+	background-color: #d272be;
+	color: #FFFFFF;
 }
 
 .modal-UI {
