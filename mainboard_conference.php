@@ -713,7 +713,7 @@ $(document).ready(function(){
 			</div>
 			<div class="col-sm-12 col-md-4 col-lg-4">
 				<table class="table table-bordered table-striped table-condensed table-hover table-titres">
-					<tr><th>Titre</th><th>Nb</th><th>Valeur</th></tr>
+					<tr><th>Main d'oeuvre</th><th>Nb</th><th>Valeur</th></tr>
 					<?php
 					include 'base.php';
 					try {
