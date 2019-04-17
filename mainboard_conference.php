@@ -624,7 +624,7 @@ $(document).ready(function(){
 						  </div>
 						  <div class="form-group form-group-sm">
 							<div class="col-sm-6" id="txtHint">
-							<p class="form-control-static">Selectionnez des titres</p>
+							<p class="form-control-static">Selectionnez de la MO</p>
 							</div>
 							<div class="col-sm-6 align-right">
 							  <span class="pull-right"><input name="titres-submit" class="btn btn-primary" type="submit" value="Valider l'Ordre"></span>
@@ -664,15 +664,15 @@ $(document).ready(function(){
 						<div class="modal-content">
 							<div class="modal-header" style="background-color:#914800; color:orange;">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Impots</h4>
+								<h4 class="modal-title">Charges Sociales</h4>
 							</div>
 							<div class="modal-body" id="txt_table_impots">
 								<table class="table table-bordered table-condensed table-striped table-titres" >
 								<tr>
 									<th>Gentleman</th>
 									<th>Assiette</th>
-									<th>Taux d'Imposition</th>
-									<th>Impôts</th>
+									<th>Taux de Charges</th>
+									<th>Charges Sociales</th>
 								</tr>
 								</table>
 							</div>
@@ -690,7 +690,7 @@ $(document).ready(function(){
             <div class="modal-content">
               <div class="modal-header" style="background-color:#914800; color:orange;">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Dividendes</h4>
+                <h4 class="modal-title">Bénéfices</h4>
               </div>
               <div class="modal-body" id="txt_table_dividendes">
                 <table class="table table-bordered table-condensed table-striped table-titres" >
@@ -698,7 +698,7 @@ $(document).ready(function(){
                   <th>Gentleman</th>
                   <th>Assiette</th>
                   <th>Taux</th>
-                  <th>Dividendes</th>
+                  <th>Bénéfices</th>
                 </tr>
                 </table>
               </div>

@@ -24,7 +24,7 @@ print '								<tr>';
 print '									<th>Gentleman</th>';
 print '									<th>Assiette</th>';
 print '									<th>Taux</th>';
-print '									<th>Dividendes</th>';
+print '									<th>Bénéfices</th>';
 print '								</tr>';
 
 try {

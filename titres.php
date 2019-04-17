@@ -12,7 +12,7 @@
 <body>
 <div class="container-fluid">
 	<div class="header">
-	<h1>Business Is Business</h1>
+	<h1>Business Is Business Conférence</h1>
 	</div>
 
 	<div class="row">

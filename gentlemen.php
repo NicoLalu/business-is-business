@@ -1,7 +1,7 @@
 
 <html>
  <head>
-  <title>Business Is Business</title>
+  <title>Business Is Business Conférence</title>
   <link rel="stylesheet" type="text/css" href="BiBstyle.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  </head>
@@ -19,7 +19,7 @@ include 'base.php';
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$stmt = $conn->prepare("SELECT * FROM Titres_conference"); 
+	$stmt = $conn->prepare("SELECT * FROM Titres_conference");
     $stmt->execute();
 	// set the resulting array to associative
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);

@@ -29,7 +29,7 @@ try {
 		print '<div class="modal-body ">'."\n";
 		print '<form class="form-horizontal" method="post" action="'.$self.'">'."\n";
 		print '<div class="form-group form-group-sm">'."\n";
-		print '<label for="quantite_UI_achete" class="col-sm-2 control-label">UI</label>'."\n";
+		print '<label for="quantite_UI_achete" class="col-sm-2 control-label">MO</label>'."\n";
 		print '<div class="col-sm-10">'."\n";
 		print '<input type="number" class="form-control" id="quantite_UI_achete" name="quantite_UI_achete" placeholder=0>'."\n";
 		print '</div>'."\n";
